@@ -39,3 +39,13 @@
         Assert.isTrue(compareNumber(1,1));// Not allow input String because there are bound T extends Number
     }
   ```
+  ## Builder Pattern
+  ```
+      public static void main(String args[]){
+        BankAccount bankAccount = new BankAccount.Builder(100L)
+                .accountName("Phea Soy")
+                .build();
+        System.out.println("Bank account:"+bankAccount);
+    }
+}
+```
