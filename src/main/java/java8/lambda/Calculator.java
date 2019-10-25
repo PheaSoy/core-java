@@ -1,4 +1,4 @@
-package java8;
+package java8.lambda;
 
 @FunctionalInterface
 public interface Calculator {

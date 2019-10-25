@@ -1,4 +1,4 @@
-package util;
+package java11;
 
 import org.apache.log4j.Logger;
 
@@ -33,8 +33,4 @@ public class MyHttpClient {
         return httpResponse.body();
     }
 
-    public static void main(String args[]) throws Exception {
-
-        new MyHttpClient().send("PheaSoy");
-    }
 }

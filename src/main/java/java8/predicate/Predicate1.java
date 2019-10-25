@@ -1,4 +1,4 @@
-package java8;
+package java8.predicate;
 
 import org.apache.log4j.Logger;
 

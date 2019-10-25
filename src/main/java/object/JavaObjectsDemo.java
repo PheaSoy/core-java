@@ -1,10 +1,9 @@
-package java8;
+package object;
 
 import model.Student;
 import org.apache.log4j.Logger;
 
 import java.util.Objects;
-import java.util.stream.Stream;
 
 
 public class JavaObjectsDemo {

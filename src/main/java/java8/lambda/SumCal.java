@@ -1,6 +1,4 @@
-package java8;
-
-import java.util.function.Predicate;
+package java8.lambda;
 
 public class SumCal {
 
