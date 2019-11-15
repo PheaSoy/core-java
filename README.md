@@ -1,5 +1,6 @@
-# core-java
-## Function<T,R>
+# Core Java Blocks
+
+## Function<T,R> 
 ```java
     public static Function<String, String> fetchUserAsString() {
         Function<String, String> jsonString = (gu) -> MyHttpClient.send(gu);
@@ -22,7 +23,7 @@
         getUser("sidarakeo");
     }
 ```
-## Generic 
+## Generic Type 
 ```java
     public static <T> boolean compareObject( T t1, T t2){
         return t1.equals(t2);
@@ -50,7 +51,7 @@
 }
 ```
 
-## CompletableFuture
+## CompletableFuture Async
 ```java
 
 public class CompleteAbleFuture1 {
@@ -83,7 +84,7 @@ public class CompleteAbleFuture1 {
 
 }
 ```
-## Java 11 HttpClient
+## Http Client on Java11
 ```java
 
 public class MyHttpClient {
