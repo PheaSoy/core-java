@@ -1,5 +1,6 @@
 package java11;
 
+import java8.exeption.GithubException;
 import org.apache.log4j.Logger;
 
 import java.net.URI;
@@ -27,6 +28,10 @@ public class MyHttpClient {
             HttpResponse<String> httpResponse = client.send(httpRequest,
                     HttpResponse.BodyHandlers.ofString());
             logger.info("HttpCode:" + httpResponse.statusCode() + " Http Body:" + httpResponse.body());
+
+            if(httpResponse.statusCode()!=200){
+                throw new GithubException("BOOM!");
+            }
             response = httpResponse.body();
         } catch (Exception ex) {
             logger.error("Error occurred", ex);
