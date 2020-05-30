@@ -41,17 +41,10 @@ public class CompleteAbleFuture1 {
                 );
     }
 
-    public static void handle(Throwable throwable) {
-
-    }
-
-
     public static void main(String args[]) throws Exception {
         executeUserFromGithub("PheaSoy");
         logger.info("Start to sleep...");
         Thread.sleep(5000);
-
-
     }
 
 }

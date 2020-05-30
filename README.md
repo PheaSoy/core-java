@@ -56,7 +56,7 @@
 
 public class CompleteAbleFuture1 {
 
-    static Logger logger = Logger.getLogger(CompleteAbleFuture1.class);
+    private static Logger logger = LogManager.getLogger(CompleteAbleFuture1.class);
 
     static CompletableFuture<String> fetchTheUser(String githubUsername) {
         logger.info("Fetch user from github");
@@ -64,22 +64,32 @@ public class CompleteAbleFuture1 {
         return completableFuture;
     }
 
-    static CompletableFuture<User> convertJsonToObject(String githubUsername) {
+    static User convertJsonToObject(String userJsonString) {
         logger.info("Convert user from strong to com.soyphea.object");
-        return fetchTheUser(githubUsername).thenApplyAsync(resultString -> MapUtil.fromJsonString(resultString));
+        return MapUtil.fromJsonString(userJsonString);
     }
-
 
     public static void saveUser(User user) {
-        logger.info("Save user:" + user);
+        Objects.requireNonNull(user);
+        logger.info("Saving the user");
     }
 
-    static public CompletableFuture executeUserFromGithub(String githubUser) {
-        return convertJsonToObject(githubUser).thenAccept(us -> saveUser(us));
+    static public void executeUserFromGithub(String githubUser) {
+        fetchTheUser(githubUser).thenApplyAsync(str -> convertJsonToObject(str)).thenAcceptAsync(user -> saveUser(user))
+                .handle(
+                        (res, ex) -> {
+                            if (ex != null) {
+                                logger.error("Got Error :"+ex.getMessage());
+                            }
+                            return null;
+                        }
+                );
     }
 
-    public static void main(String args[]) {
-        executeUserFromGithub("sidarakeo");
+    public static void main(String args[]) throws Exception {
+        executeUserFromGithub("PheaSoy");
+        logger.info("Start to sleep...");
+        Thread.sleep(5000);
     }
 
 }
