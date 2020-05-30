@@ -65,7 +65,7 @@ public class CompleteAbleFuture1 {
     }
 
     static CompletableFuture<User> convertJsonToObject(String githubUsername) {
-        logger.info("Convert user from strong to object");
+        logger.info("Convert user from strong to com.soyphea.object");
         return fetchTheUser(githubUsername).thenApplyAsync(resultString -> MapUtil.fromJsonString(resultString));
     }
 
