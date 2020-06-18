@@ -16,6 +16,6 @@ public class Compare1 {
 
         Assert.isTrue(compareObject(1,"2")); // Allow input String because there are no bound
 
-        Assert.isTrue(compareNumber(1,1));// Not allow input String because there are bound T extends Number
+        Assert.isTrue(compareNumber(1,2));// Not allow input String because there are bound T extends Number
     }
 }
